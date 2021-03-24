@@ -2,6 +2,10 @@
   "name": "dbitlor",
   "displayName": "dbitlor",
   "expo": {
+    "android": {
+
+      "useNextNotificationsApi": true
+    },
     "name": "dbitlor",
     "slug": "dbitlor",
     "version": "1.0.0",
