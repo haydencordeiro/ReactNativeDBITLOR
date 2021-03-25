@@ -9,29 +9,7 @@ import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 import axios from 'axios';
-function HomeScreen({navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Detail')}
-      />
-    </View>
-  );
-}
 
-function DetailSCreen({ navigation}) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Detail Screen</Text>
-      <Button
-        title="Go to Home"
-        onPress={() => navigation.navigate('Home')}
-      />
-    </View>
-  );
-}
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -53,7 +31,12 @@ async function registerForPushNotificationsAsync() {
       return;
     }
     token = (await Notifications.getExpoPushTokenAsync()).data;
-    console.log(token);
+    console.warn(token);
+    console.warn(token);
+    console.warn(token);
+    console.warn(token);
+    console.warn(token);
+    console.warn(token);
   } else {
     alert('Must use physical device for Push Notifications');
   }
@@ -69,9 +52,6 @@ async function registerForPushNotificationsAsync() {
 
   return token;
 }
-
-
-
 
 
 const Stack = createStackNavigator();
@@ -105,14 +85,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-
-
-
-      
-        <Stack.Screen name="Teacher" component={Teacher}  options={{ title: 'Teacher Screen',headerShown: false }}/>
         <Stack.Screen name="Login" component={Login}  options={{ title: 'Login Screen',headerShown: false }}/>
-        <Stack.Screen name="Home" component={HomeScreen}  options={{ title: 'Home Screen' }}/>
-        <Stack.Screen name="Detail" component={DetailSCreen}  options={{ title: 'Details Screen' }}/>
+        <Stack.Screen name="Teacher" component={Teacher}  options={{ title: 'Teacher Screen',headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

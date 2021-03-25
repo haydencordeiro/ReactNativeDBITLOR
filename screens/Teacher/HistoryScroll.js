@@ -4,15 +4,15 @@ import {  View, Text,TextInput, TouchableHighlight, StyleSheet ,Dimensions ,  Fl
 import ProfileCard from '../../components/ProfileCard'
 import axios from 'axios';
 
-export default function HistoryScroll() {
-;
-    var [refreshing,Setrefreshing]=useState(false);
+export default function HistoryScroll({token}) {
+
     var [application, SetApplication] = useState([]);
+    var [refreshing, Setrefreshing] = useState(false);
  
   async function handleRefresh () {
     axios.get(`https://dbit-lor.herokuapp.com/api/loggedinteachersapplications/`, {
         headers: {
-          'Authorization': `Token 44c5f2df36420898817d76dde745c18e8c526d54`
+          'Authorization': `Token ${token}`
         }
       })
         .then((res) => {

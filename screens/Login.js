@@ -1,11 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {  View, Text,TextInput, TouchableHighlight, StyleSheet ,Dimensions ,  KeyboardAwareView} from 'react-native'
-
+import axios from 'axios'
 export default function Login({navigation}) {
-  const deviceWidth = Dimensions.get('window').width;
+  var [username,Setusername]=useState("");
+  var [password,Setpassword]=useState("");
+  
+
+
+  async function GetToken(){
+    var res=await axios.post('https://dbit-lor.herokuapp.com/token/login/',  {"username":username,"password":password },{}).then(console.log())
+    .catch((error) => {
+      console.error(error, "failed to send token");
+    })
+ 
+    try{
+      var temp=res.data["auth_token"];
+      console.log(temp)
+      navigation.replace('Teacher',{token:temp });
+    }
+    catch{
+      alert("Incorrect ID or Password")
+
+    }
+    
+  }
+
+
+
+      
+
   return (
-    // 
+
     <View style={styles.container}>
       <View style={styles.titleContainter}> 
       <Text style={styles.titleText}>Hello.</Text>
@@ -15,14 +41,13 @@ export default function Login({navigation}) {
       <View style={styles.formContainer}> 
           <Text style={styles.labelText}>USERNAME</Text>
           <View style={styles.TextInputContainerParent}>
-    
-
                 <View style={styles.TextInputContainer}>
                     <TextInput 
                             autoCorrect={false}
                           placeholder="Cordeirohayden@gmail.com"
                             style= {styles.inputStyle}
                             placeholderTextColor ="white"
+                            onChangeText ={(e) => Setusername(e)}
                           />
                     </View>
               </View>
@@ -38,14 +63,13 @@ export default function Login({navigation}) {
                       secureTextEntry={true}
                         style= {styles.inputStyle}
                         placeholderTextColor ="white"
+                        onChangeText ={(e) => Setpassword(e)}
+
                       />
                 </View>
           </View>
-         
-          
-
           <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-              <TouchableHighlight  underlayColor={"grey"} style = {styles.button} onPress = {() =>{navigation.replace('Home')}}>
+              <TouchableHighlight  underlayColor={"grey"} style = {styles.button} onPress = {() =>{GetToken()}}>
               <View style={styles.button}>
 
             <Text style={{color:"white",fontSize:25,fontFamily:"sans-serif-medium",fontWeight:"400"}}>LOGIN</Text>
