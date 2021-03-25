@@ -8,9 +8,9 @@ export default function ProfileCard({ title,status,date }) {
     function GetSubTitle(status){
         switch (status) {
 
-            case "pending": return <Text style={[styles.cardSubTitle,{color:"orange"}]}>Pending</Text>
-            case "approved": return <Text style={[styles.cardSubTitle,{color:"green"}]}>Approved</Text>
-            case "rejected": return <Text style={[styles.cardSubTitle,{color:"#FD8273"}]}>Rejected</Text>
+            case "pending": return <Text style={[styles.cardSubTitle,{color:"#FFC103"}]}>Pending</Text>
+            case "approved": return <Text style={[styles.cardSubTitle,{color:"#77DCBC"}]}>Approved</Text>
+            case "rejected": return <Text style={[styles.cardSubTitle,{color:"#FA0246"}]}>Rejected</Text>
         
         
             default: return  <Text style={[styles.cardSubTitle,{color:"green"}]}>{status}</Text>
@@ -22,9 +22,9 @@ export default function ProfileCard({ title,status,date }) {
     function GetLogo(status){
         switch (status) {
 
-            case "pending": return <View style={[styles.logo,{backgroundColor:"orange"}]}></View>
-            case "approved": return <View style={[styles.logo,{backgroundColor:"green"}]}></View>
-            case "rejected": return <View style={[styles.logo,{backgroundColor:"#FD8273"}]}></View>
+            case "pending": return <View style={[styles.logo,{backgroundColor:"#FFC103"}]}></View>
+            case "approved": return <View style={[styles.logo,{backgroundColor:"#77DCBC"}]}></View>
+            case "rejected": return <View style={[styles.logo,{backgroundColor:"#FA0246"}]}></View>
         
         
             default: return  <View style={[styles.logo,{backgroundColor:"green"}]}></View>

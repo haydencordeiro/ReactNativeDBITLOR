@@ -1,17 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {  View, Text,TextInput, TouchableHighlight, StyleSheet ,Dimensions ,  Image} from 'react-native'
-
-export default function StatsCard() {
+import Donut from './Donut'
+export default function StatsCard({color,title,value,total}) {
 
 
   return (
 
     <View style={styles.card}> 
-        <View style={styles.leftContainer}></View>
+        <View style={styles.leftContainer}>
+        <Donut key={title} percentage={parseInt(value)} color={color}  max={total}/>
+        </View>
         <View style={styles.rightContainer}>
-            <Text style={{color:"#B5B6B9",letterSpacing:0.05,fontWeight:"100",fontWeight:"400" ,lineHeight: 35,}}>Accepted</Text>
-            <Text style={{color:"#212237",fontSize:38,fontWeight:"bold", lineHeight: 40,}}>230</Text>
+            <Text style={{color:"#B5B6B9",letterSpacing:0.05,fontWeight:"100",fontWeight:"400" ,lineHeight: 35,}}>{title}</Text>
+            <Text style={{color:"#212237",fontSize:38,fontWeight:"bold", lineHeight: 40,}}>{value}</Text>
         </View>
     </View>
 
@@ -32,7 +34,8 @@ const styles = StyleSheet.create({
  },
  leftContainer:{
     width:85,
-    // backgroundColor:"blue",
+    justifyContent:"center",
+    alignItems:"center",
  },
  rightContainer:{
     width:105,

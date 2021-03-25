@@ -3,8 +3,8 @@ import React,{useState,useEffect} from 'react';
 import {  View, Text,TextInput, TouchableHighlight, StyleSheet ,Dimensions ,  KeyboardAwareView} from 'react-native'
 import axios from 'axios'
 export default function Login({navigation}) {
-  var [username,Setusername]=useState("teacher");
-  var [password,Setpassword]=useState("teacher");
+  var [username,Setusername]=useState("");
+  var [password,Setpassword]=useState("");
   
 
 
@@ -25,10 +25,10 @@ export default function Login({navigation}) {
     }
     
   }
-useEffect(() => {
+// useEffect(() => {
   
-GetToken()
-}, [])
+// GetToken()
+// }, [])
 
 
       
@@ -92,7 +92,7 @@ GetToken()
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
-    backgroundColor: '#2F2F2F',
+    backgroundColor: '#1A202F',
     height:1000
 
   },
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   },
   button:{
     fontFamily:"sans-serif-medium",
-    backgroundColor:"#5D9DFF",
+    backgroundColor:"#534ED1",
     height:50,
     width:"80%",
     borderRadius:10,
