@@ -3,9 +3,13 @@
   "displayName": "dbitlor",
   "expo": {
     "android": {
-
-      "useNextNotificationsApi": true
+      "useNextNotificationsApi": true,
+      "package": "com.haydencordeiro.dbitlor",
+      "permissions": [
+        "NOTIFICATIONS"
+      ]
     },
+
     "name": "dbitlor",
     "slug": "dbitlor",
     "version": "1.0.0",

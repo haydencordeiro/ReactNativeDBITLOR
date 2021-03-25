@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     card:{
         height:100,
         backgroundColor:"#14141A",
-        width:380,
+        width:360,
         borderRadius:20,
         alignItems:"center",
         flexDirection:"row",

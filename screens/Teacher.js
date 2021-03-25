@@ -1,53 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{useState,useEffect} from 'react';
 import {  View, Text,TextInput, TouchableHighlight, StyleSheet ,Dimensions ,  FlatList} from 'react-native'
-import ProfileCard from '../components/ProfileCard'
+import HistoryScroll from './Teacher/HistoryScroll'
 import axios from 'axios';
+
 
 export default function Teacher({navigation}) {
   const deviceWidth = Dimensions.get('window').width;
-    var [refreshing,Setrefreshing]=useState(false);
-    var [application, SetApplication] = useState([]);
+
  
-  async function handleRefresh () {
-    axios.get(`https://dbit-lor.herokuapp.com/api/loggedinteachersapplications/`, {
-        headers: {
-          'Authorization': `Token 44c5f2df36420898817d76dde745c18e8c526d54`
-        }
-      })
-        .then((res) => {
-          SetApplication(res.data);
-        })
-        .catch((error) => {
-          console.error(error)
-        })
-    Setrefreshing(false);
-    }
-    
-  useEffect(() => {
-    handleRefresh()
-  }, [])
 
   return (
-      
+
  
     <View style={styles.container}>
 
-        <View style={styles.bottom}>
-            <View style={{width:"100%"}}>
-            <Text style={{color:"black",fontWeight:"800",fontSize:26,padding:10,marginLeft:10}}>History</Text>
+
+      <View style={styles.horiCard}>
+
+            <View style={{backgroundColor:"red",height:90,width:90,borderRadius:50}}> 
 
             </View>
-            <FlatList
-            style={{width:"100%"}}
-            data={application}
-            renderItem={({ item }) =><ProfileCard title={item.student.first_name+" "+item.student.last_name} status={item.status} ></ProfileCard>}
-            refreshing={refreshing}
-            onRefresh={handleRefresh}
-            contentContainerStyle={{ alignItems: 'center'}}
-            keyExtractor={(item, index) => index.toString()}
+            <View style={{height:100,width:230,margin:10,justifyContent:"center"}}>
+              <Text style={{color:"white",fontSize:40,fontWeight:"800",marginLeft:40}}>120</Text>
+              <Text  style={{color:"white",fontSize:20,fontWeight:"800",marginLeft:40}}>Total Rejected</Text>
+            </View>
+    
+      </View>
 
-      />
+
+        <View style={styles.bottom}>
+            <View style={{width:"100%"}}>
+          <HistoryScroll></HistoryScroll>
+          </View>
         </View>
     </View>
 
@@ -58,19 +43,30 @@ export default function Teacher({navigation}) {
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:"#1A1E27",
-
+        backgroundColor:"#101622",
         justifyContent:"flex-end",
+        alignItems:"center",
         
     },
     bottom:{
         height:550,
+        width:"90%",
         backgroundColor:"white",
         borderTopEndRadius:30,
         borderTopLeftRadius:30,
         alignItems:"center",
         overflow:"hidden",
-
+    },
+    horiCard:{
+      height:160,
+      margin:10,
+      backgroundColor:"#1A202F",
+      borderRadius:30,
+      width:"90%",
+      marginBottom:20,
+      justifyContent:"center",
+      alignItems:"center",
+      flexDirection:"row",
 
     }
 
