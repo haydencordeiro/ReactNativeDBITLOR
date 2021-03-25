@@ -35,9 +35,7 @@ export default function ProfileCard({ title,status,date }) {
 
 
   return (
- 
-  
-        
+
         <View style={styles.card}> 
                 {GetLogo(status)}
             

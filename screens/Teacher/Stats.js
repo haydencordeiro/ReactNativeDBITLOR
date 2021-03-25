@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{useState,useEffect} from 'react';
 import {  View, Text,TextInput, TouchableHighlight, StyleSheet ,Dimensions ,  FlatList} from 'react-native'
-import ProfileCard from '../../components/ProfileCard'
 import axios from 'axios';
+import StatsCard from '../../components/StatsCard';
+
 
 export default function Stats({token}) {
 
@@ -33,33 +34,62 @@ export default function Stats({token}) {
 
   return (
       
+
+
     <View style={styles.horiCard}>
 
-    <View style={{height:100,width:230,margin:10,justifyContent:"center"}}>
-      <Text style={{color:"white",fontSize:20,fontWeight:"800",marginLeft:40}}>{"Total Approved "+stats["approvedReq"]}</Text>
-      <Text style={{color:"white",fontSize:20,fontWeight:"800",marginLeft:40}}>{"Total Pending "+stats["pendingReq"]}</Text>
-      <Text style={{color:"white",fontSize:20,fontWeight:"800",marginLeft:40}}>{"Total Rejected "+stats["rejectedReq"]}</Text>
 
-    </View>
 
-</View> 
+
+        <View style={styles.topbar}>
+            <Text style={{fontWeight:"bold",fontSize:30,paddingLeft:15,color:"white",marginTop:4}}>Your Dashboard!</Text>
+            {/* <Text style={{fontWeight:"bold",fontSize:30,paddingRight:20}}>Log</Text> */}
+        </View>
+        <View style={styles.statcards}>
+            <StatsCard></StatsCard>
+            <StatsCard></StatsCard>
+        </View>
+      
+
+    </View> 
+
+
 
 
   );
 }
 
 const styles = StyleSheet.create({
-
-    horiCard:{
-        height:160,
-        margin:10,
-        backgroundColor:"#1A202F",
-        borderRadius:30,
-        width:"90%",
-        marginBottom:20,
-        // justifyContent:"center",
-        alignItems:"center",
+    topbar:{
+        
+        // backgroundColor:"red",
+        width:"100%",
+        flex:1,
+        marginTop:20,
         flexDirection:"row",
+        justifyContent:"space-between"
+
+
+    },
+    statcards:{
+        width:"100%",
+        flexDirection:'row',
+        justifyContent:"space-around",
+        margin:20
+
+
+    },
+    horiCard:{
+    flex:1,
+        backgroundColor:"#1A202F",
+
+        width:"100%",
+        marginBottom:20,
+ 
+        justifyContent:"flex-end",
+        alignItems:"center"
+
+
   
       }
 });

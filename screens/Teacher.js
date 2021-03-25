@@ -11,6 +11,7 @@ export default function Teacher({navigation,route}) {
   return (
 
     <View style={styles.container}>
+
       <Stats token={route.params.token}></Stats>
       
         <View style={styles.bottom}>
@@ -25,6 +26,7 @@ export default function Teacher({navigation,route}) {
 }
 
 const styles = StyleSheet.create({
+
     container:{
         flex:1,
         backgroundColor:"#F6F9FA",
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
         
     },
     bottom:{
-        height:500,
+        height:550,
         width:"90%",
         backgroundColor:"#FFFFFF",
         borderTopEndRadius:10,
