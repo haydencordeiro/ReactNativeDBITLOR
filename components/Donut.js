@@ -15,9 +15,9 @@ const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 
 export default function Donut({
   percentage = 75,
-  radius = 37,
+  radius = 40,
   strokeWidth = 10,
-  duration = 2000,
+  duration = 500,
   color = "tomato",
   delay = 0,
   textColor,

@@ -3,8 +3,8 @@ import React,{useState,useEffect} from 'react';
 import {  View, Text,TextInput, TouchableHighlight, StyleSheet ,Dimensions ,  KeyboardAwareView} from 'react-native'
 import axios from 'axios'
 export default function Login({navigation}) {
-  var [username,Setusername]=useState("");
-  var [password,Setpassword]=useState("");
+  var [username,Setusername]=useState("teacher");
+  var [password,Setpassword]=useState("teacher");
   
 
 
