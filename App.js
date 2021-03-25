@@ -31,12 +31,12 @@ async function registerForPushNotificationsAsync() {
       return;
     }
     token = (await Notifications.getExpoPushTokenAsync()).data;
-    console.warn(token);
-    console.warn(token);
-    console.warn(token);
-    console.warn(token);
-    console.warn(token);
-    console.warn(token);
+    // console.warn(token);
+    // console.warn(token);
+    // console.warn(token);
+    // console.warn(token);
+    // console.warn(token);
+    // console.warn(token);
   } else {
     alert('Must use physical device for Push Notifications');
   }

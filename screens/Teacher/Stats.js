@@ -8,9 +8,9 @@ import StatsCard from '../../components/StatsCard';
 export default function Stats({token}) {
 
     var [stats,Setstats]=useState({
-        "approvedReq": 1,
-        "pendingReq": 1,
-        "rejectedReq": 1,
+        "approvedReq": null,
+        "pendingReq": null,
+        "rejectedReq": null,
     });
 
     async function getStats () {
@@ -46,8 +46,8 @@ export default function Stats({token}) {
 
         </View>
         <View style={styles.statcards}>
-            <StatsCard color={"#77DCBC"} title={"Approved"} value={stats["approvedReq"]} total={parseInt(stats["approvedReq"])+parseInt(stats["rejectedReq"])} />
-            <StatsCard color={"#F90446"} title={"Rejected"} value={stats["rejectedReq"]} total={parseInt(stats["approvedReq"])+parseInt(stats["rejectedReq"])} />
+            <StatsCard id={0}color={"#77DCBC"} title={"Approved"} value={stats["approvedReq"]} total={parseInt(stats["approvedReq"])+parseInt(stats["rejectedReq"])} />
+            <StatsCard id={1} color={"#F90446"} title={"Rejected"} value={stats["rejectedReq"]} total={parseInt(stats["approvedReq"])+parseInt(stats["rejectedReq"])} />
    
         </View>
       

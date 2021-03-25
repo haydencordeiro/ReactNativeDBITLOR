@@ -25,10 +25,10 @@ export default function Login({navigation}) {
     }
     
   }
-// useEffect(() => {
+useEffect(() => {
   
-// GetToken()
-// }, [])
+GetToken()
+}, [])
 
 
       
