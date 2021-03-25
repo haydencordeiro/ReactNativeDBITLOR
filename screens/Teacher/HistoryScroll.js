@@ -17,6 +17,7 @@ export default function HistoryScroll({token}) {
       })
         .then((res) => {
           SetApplication(res.data);
+          // console.log(res.data);
         })
         .catch((error) => {
           console.error(error)
@@ -41,7 +42,7 @@ export default function HistoryScroll({token}) {
             <FlatList
             style={{width:"100%"}}
             data={application}
-            renderItem={({ item }) =><ProfileCard title={item.student.first_name+" "+item.student.last_name} status={item.status} ></ProfileCard>}
+            renderItem={({ item }) =><ProfileCard title={item.student.first_name+" "+item.student.last_name} date={item.date} status={item.status} ></ProfileCard>}
             refreshing={refreshing}
             onRefresh={handleRefresh}
             contentContainerStyle={{ alignItems: 'center'}}

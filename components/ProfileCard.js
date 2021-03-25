@@ -1,16 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import {  View, Text,TextInput, TouchableHighlight, StyleSheet ,Dimensions ,  KeyboardAwareView} from 'react-native'
+import {  View, Text,TextInput, TouchableHighlight, StyleSheet ,Dimensions ,  Image} from 'react-native'
 
-export default function ProfileCard({ title,status }) {
+export default function ProfileCard({ title,status,date }) {
     // console.log(status);
   const deviceWidth = Dimensions.get('window').width;
     function GetSubTitle(status){
         switch (status) {
 
-            case "pending": return <Text style={[styles.cardSubTitle,{color:"orange"}]}>{status}</Text>
-            case "approved": return <Text style={[styles.cardSubTitle,{color:"green"}]}>{status}</Text>
-            case "rejected": return <Text style={[styles.cardSubTitle,{color:"#FD8273"}]}>{status}</Text>
+            case "pending": return <Text style={[styles.cardSubTitle,{color:"orange"}]}>Pending</Text>
+            case "approved": return <Text style={[styles.cardSubTitle,{color:"green"}]}>Approved</Text>
+            case "rejected": return <Text style={[styles.cardSubTitle,{color:"#FD8273"}]}>Rejected</Text>
         
         
             default: return  <Text style={[styles.cardSubTitle,{color:"green"}]}>{status}</Text>
@@ -19,14 +19,34 @@ export default function ProfileCard({ title,status }) {
  
     }
 
+    function GetLogo(status){
+        switch (status) {
+
+            case "pending": return <View style={[styles.logo,{backgroundColor:"orange"}]}></View>
+            case "approved": return <View style={[styles.logo,{backgroundColor:"green"}]}></View>
+            case "rejected": return <View style={[styles.logo,{backgroundColor:"#FD8273"}]}></View>
+        
+        
+            default: return  <View style={[styles.logo,{backgroundColor:"green"}]}></View>
+        }
+            
+ 
+    }
+
+
   return (
  
   
         
         <View style={styles.card}> 
-            <View style={styles.logo}></View>
+                {GetLogo(status)}
+            
             <View style={styles.cardDetailsContainer}>
                 <Text style={styles.cardTitle}>{title}</Text>
+                <Text style={styles.cardSubTitle}>{date}</Text>
+            </View>
+            <View style={{flex:1,height:100,alignItems:"flex-end",marginTop:58,marginRight:10}} >
+
                 {GetSubTitle(status)}
             </View>
 
@@ -40,34 +60,41 @@ const styles = StyleSheet.create({
 
     card:{
         height:100,
-        backgroundColor:"#14141A",
+        backgroundColor:"#ffff",
         width:360,
-        borderRadius:20,
         alignItems:"center",
         flexDirection:"row",
-        margin:10,
+        borderBottomWidth:1.6,
+        borderColor:"#f5f5f5",
+        margin:1,
+        elevation:0.1
         
     },
     logo:{
-        height:80,
+        height:60,
         backgroundColor:"#1A1E27",
-        width:80,
+        width:60,
         margin:10,
-        borderRadius:20,
+        borderRadius:15,
+        justifyContent:"center",
+        alignItems:"center"
     },
     cardDetailsContainer:{
-        height:80,
-        marginTop:10
+        height:100,
+        // marginTop:10,
+        justifyContent:"center",
+        // backgroundColor:"red"
     },
     cardTitle:{
-        color:"#fefefe",
+        color:"black",
         fontWeight:"800",
-        fontSize:16
+        fontSize:16,
+        fontWeight:"bold"
     },
     cardSubTitle:{
-        color:"#932048",
+        color:"#6B6F78",
         fontWeight:"300",
-        paddingTop:3,
+        paddingTop:1,
            }
 
 });

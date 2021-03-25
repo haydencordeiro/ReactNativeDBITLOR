@@ -27,19 +27,20 @@ export default function Teacher({navigation,route}) {
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:"#101622",
+        backgroundColor:"#F6F9FA",
         justifyContent:"flex-end",
         alignItems:"center",
         
     },
     bottom:{
-        height:550,
+        height:500,
         width:"90%",
-        backgroundColor:"white",
-        borderTopEndRadius:30,
-        borderTopLeftRadius:30,
+        backgroundColor:"#FFFFFF",
+        borderTopEndRadius:10,
+        borderTopLeftRadius:10,
         alignItems:"center",
         overflow:"hidden",
+        elevation: 1,
     },
 
 

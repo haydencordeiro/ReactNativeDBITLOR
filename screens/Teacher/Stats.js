@@ -39,7 +39,7 @@ export default function Stats({token}) {
       <Text style={{color:"white",fontSize:20,fontWeight:"800",marginLeft:40}}>{"Total Approved "+stats["approvedReq"]}</Text>
       <Text style={{color:"white",fontSize:20,fontWeight:"800",marginLeft:40}}>{"Total Pending "+stats["pendingReq"]}</Text>
       <Text style={{color:"white",fontSize:20,fontWeight:"800",marginLeft:40}}>{"Total Rejected "+stats["rejectedReq"]}</Text>
-      {/* <Text  style={{color:"white",fontSize:20,fontWeight:"800",marginLeft:40}}>Total Rejected</Text> */}
+
     </View>
 
 </View> 
