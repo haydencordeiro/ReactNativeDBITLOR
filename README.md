@@ -21,6 +21,7 @@
 - [Frontend](#frontend)
 - [Backend](#backend)
 - [Android App](#android)
+- [Infra Docker](#infra)
 
 
 ## Overview
@@ -83,5 +84,8 @@ and the final LOR can be downloaded by the student.
 
 ## Android App <a id="android"></a>
 [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/haydencordeiro/ReactNativeDBITLOR)  
+
+## Infra [Docker] <a id="infra"></a>
+[![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/haydencordeiro/DbitLorDocker)  
 
 
